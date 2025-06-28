@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA³ - Personal Mentorship</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#c9b18c',secondary:'#1a1a1a'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://readdy.ai/api/search-image?query=elegant%2520woman%2520in%2520black%2520hat%2520and%2520dress%2520with%2520dramatic%2520lighting%2520against%2520dark%2520background%2520high%2520fashion%2520editorial%2520style%2520black%2520and%2520white%2520photography%2520with%2520soft%2520gradient%2520on%2520left%2520side%2520for%2520text%2520placement%2520luxury%2520aesthetic&width=1920&height=1080&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .steps-section {
+            background-color: #f9f9f9;
+        }
+        input:focus, button:focus {
+            outline: none;
+        }
+        .custom-checkbox {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            border: 1px solid #c9b18c;
+            border-radius: 4px;
+        }
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: #c9b18c;
+        }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .custom-checkbox .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="w-full bg-white fixed top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-['Pacifico'] text-primary">SMA³</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-800 hover:text-primary transition-colors">About</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary transition-colors">Contact</a>
+                <a href="#testimonials" class="text-gray-800 hover:text-primary transition-colors">Testimonials</a>
+                <a href="#services" class="text-gray-800 hover:text-primary transition-colors">Services</a>
+                <button class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book Now</button>
+            </nav>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section w-full min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-6xl text-white playfair font-semibold mb-4">Unlock Your True Potential</h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 playfair italic">Are you ready to discover your purpose?</p>
+                <button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book Your Session</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stakes Section -->
+    <section class="w-full py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl text-center playfair font-semibold mb-16">Don't Risk Losing Your Sense of Self</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-emotion-sad-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Trapped in Confusion</h3>
+                    <p class="text-gray-600">You might stay trapped in a cycle of uncertainty, unable to make decisions that align with your true self.</p>
+                </div>
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-mental-health-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Emotional Exhaustion</h3>
+                    <p class="text-gray-600">Emotional exhaustion could follow you everywhere, draining your energy and preventing personal growth.</p>
+                </div>
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-question-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Persistent Self-Doubt</h3>
+                    <p class="text-gray-600">Self-doubt could keep you from taking action on your dreams and reaching your fullest potential.</p>
+                </div>
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-heart-3-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Unexplored Passions</h3>
+                    <p class="text-gray-600">Your passions might remain unexplored, leaving you wondering about what could have been.</p>
+                </div>
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-user-heart-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Relationship Struggles</h3>
+                    <p class="text-gray-600">Relationships may suffer due to disconnection from your authentic self, creating barriers to meaningful connections.</p>
+                </div>
+                <div class="bg-white p-8 rounded shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-4">
+                        <i class="ri-compass-3-line text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Loss of Direction</h3>
+                    <p class="text-gray-600">Without clarity, you might find yourself drifting without purpose, missing opportunities for fulfillment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="w-full py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://readdy.ai/api/search-image?query=elegant%2520woman%2520in%2520white%2520outfit%2520looking%2520confident%2520and%2520empowered%2520against%2520minimal%2520background%2520professional%2520portrait%2520with%2520soft%2520lighting%2520high%2520fashion%2520editorial%2520style%2520luxury%2520aesthetic&width=800&height=1000&seq=2&orientation=portrait" alt="Empowered woman" class="rounded-lg shadow-lg max-w-full h-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-16">
+                    <h2 class="text-3xl md:text-4xl playfair font-semibold mb-8">Transform Doubt into Clarity</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-4 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium mb-2">Empowered Decision-Making</h3>
+                                <p class="text-gray-600">Feel empowered to make confident decisions that align with your true values and aspirations.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-4 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium mb-2">Cultivate Self-Trust</h3>
+                                <p class="text-gray-600">Develop unshakable self-trust and inner clarity that guides you through life's challenges.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-4 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium mb-2">Transform Limiting Beliefs</h3>
+                                <p class="text-gray-600">Transform limiting beliefs into tangible success and achievement in all areas of your life.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full mr-4 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium mb-2">Unlock Your Potential</h3>
+                                <p class="text-gray-600">Unlock access to your true potential and purpose, creating a life of fulfillment and joy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-10 bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empathy & Competency Section -->
+    <section id="about" class="w-full py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-16 mb-10 md:mb-0 order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl playfair font-semibold mb-6">We Are Here to Guide You</h2>
+                    <p class="text-xl text-gray-600 mb-8 playfair italic">Let our expertise lead you toward fulfillment and joy.</p>
+                    
+                    <div class="flex items-center mb-8">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mr-6">
+                            <i class="ri-award-line text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-medium">10+ Years of Experience</h3>
+                            <p class="text-gray-600">Dedicated to transformational mentorship</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-10">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mr-6">
+                            <i class="ri-medal-line text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-medium">Certified Expert in Neurocoaching</h3>
+                            <p class="text-gray-600">Specialized training in transformational psychology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-8 rounded-lg border-l-4 border-primary">
+                        <p class="text-gray-600 italic mb-4">"SMA³ transformed my journey—I've never felt more alive and certain. The clarity I've gained has impacted every area of my life, from my career to my relationships."</p>
+                        <p class="font-medium">Camila Rodriguez</p>
+                        <p class="text-sm text-gray-500">Executive Director</p>
+                    </div>
+                    
+                    <button class="mt-10 bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book Now</button>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2">
+                    <img src="https://readdy.ai/api/search-image?query=elegant%2520professional%2520woman%2520mentor%2520in%2520sophisticated%2520outfit%2520with%2520warm%2520expression%2520against%2520neutral%2520background%2520high%2520end%2520portrait%2520photography%2520with%2520soft%2520lighting%2520luxury%2520editorial%2520style&width=800&height=1000&seq=3&orientation=portrait" alt="Professional mentor" class="rounded-lg shadow-lg max-w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan Section -->
+    <section class="steps-section w-full py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl text-center playfair font-semibold mb-16">3 Simple Steps to Your Transformation</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <span class="text-primary text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Say Yes to Yourself</h3>
+                    <p class="text-gray-600">Choose a session that resonates with your needs and aligns with your personal goals.</p>
+                    <div class="mt-6">
+                        <i class="ri-arrow-right-line text-primary text-xl"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <span class="text-primary text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Clarify Your Goals</h3>
+                    <p class="text-gray-600">Fill out the intention form to help us understand your desires, challenges, and aspirations.</p>
+                    <div class="mt-6">
+                        <i class="ri-arrow-right-line text-primary text-xl"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-6">
+                        <span class="text-primary text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">Start Your Journey</h3>
+                    <p class="text-gray-600">Engage in your personalized mentorship experience and begin your transformation.</p>
+                    <div class="mt-6">
+                        <i class="ri-check-double-line text-primary text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explanatory Section -->
+    <section id="services" class="w-full py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://readdy.ai/api/search-image?query=elegant%2520woman%2520in%2520thoughtful%2520pose%2520looking%2520through%2520window%2520with%2520soft%2520natural%2520light%2520contemplative%2520moment%2520high%2520end%2520editorial%2520style%2520photography%2520with%2520neutral%2520tones%2520luxury%2520aesthetic&width=800&height=1000&seq=4&orientation=portrait" alt="Contemplative woman" class="rounded-lg shadow-lg max-w-full h-auto">
+                </div>
+                <div class="md:w-1/2 md:pl-16">
+                    <h2 class="text-3xl md:text-4xl playfair font-semibold mb-6">Feeling Stuck and Overwhelmed?</h2>
+                    <p class="text-gray-600 mb-6">Many of us experience moments when life feels overwhelming and our path forward seems unclear. This uncertainty can manifest as anxiety, indecision, and a disconnection from our authentic selves.</p>
+                    <p class="text-gray-600 mb-6">Our personalized mentorship program is designed to help you break through these barriers. Through a combination of neurocoaching techniques, mindfulness practices, and strategic guidance, we help you:</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Identify and release limiting beliefs that keep you stuck</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Reconnect with your core values and authentic purpose</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Develop practical strategies for maintaining clarity and focus</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-gray-600">Create a sustainable plan for living authentically and purposefully</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="w-full py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl text-center playfair font-semibold mb-16">What Our Clients Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex justify-center mb-6">
+                        <i class="ri-double-quotes-l text-primary text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Working with SMA³ has been transformative. I've gained clarity about my purpose and now feel equipped to make decisions that truly align with who I am."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4 flex items-center justify-center">
+                            <i class="ri-user-line text-gray-500"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Sophia Martinez</p>
+                            <p class="text-sm text-gray-500">Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex justify-center mb-6">
+                        <i class="ri-double-quotes-l text-primary text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"The mentorship program helped me break through years of self-doubt. I've accomplished more in six months than I did in the previous three years."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4 flex items-center justify-center">
+                            <i class="ri-user-line text-gray-500"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">James Wilson</p>
+                            <p class="text-sm text-gray-500">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex justify-center mb-6">
+                        <i class="ri-double-quotes-l text-primary text-4xl"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"I was at a crossroads in my career when I found SMA³. The guidance I received helped me make choices from a place of confidence rather than fear."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-4 flex items-center justify-center">
+                            <i class="ri-user-line text-gray-500"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Elena Nguyen</p>
+                            <p class="text-sm text-gray-500">Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <section id="contact" class="w-full py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl text-center playfair font-semibold mb-4">Ready to Begin Your Journey?</h2>
+                <p class="text-xl text-center text-gray-600 mb-12 playfair italic">Let's connect and explore how we can support your transformation</p>
+                
+                <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+                    <form>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="firstName" class="block text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your first name">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your last name">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your email address">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your phone number">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-gray-700 mb-2">Service You're Interested In</label>
+                            <div class="relative">
+                                <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+                                    <option value="" selected disabled>Select a service</option>
+                                    <option value="personal">Personal Mentorship</option>
+                                    <option value="career">Career Guidance</option>
+                                    <option value="relationship">Relationship Coaching</option>
+                                    <option value="life">Life Purpose Discovery</option>
+                                </select>
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Share a bit about what you're looking for..."></textarea>
+                        </div>
+                        
+                        <label class="custom-checkbox mb-8 block">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="text-gray-600 ml-2">I agree to receive occasional emails with insights and offers from SMA³</span>
+                        </label>
+                        
+                        <button type="submit" class="w-full bg-primary text-white py-3 !rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between mb-12">
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-3xl font-['Pacifico'] text-primary mb-4 block">SMA³</a>
+                    <p class="text-gray-400 max-w-xs">Guiding you to discover your authentic self and live a life of purpose and fulfillment.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-pinterest-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">About</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-primary transition-colors">Services</a></li>
+                            <li><a href="#testimonials" class="text-gray-400 hover:text-primary transition-colors">Testimonials</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">Services</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Personal Mentorship</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Career Guidance</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Relationship Coaching</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Life Purpose Discovery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium mb-4">Contact</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="ri-mail-line mr-3 mt-1 text-primary"></i>
+                                <span class="text-gray-400">hello@sma3mentorship.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-phone-line mr-3 mt-1 text-primary"></i>
+                                <span class="text-gray-400">+1 (555) 123-4567</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ri-map-pin-line mr-3 mt-1 text-primary"></i>
+                                <span class="text-gray-400">1234 Serenity Lane, Suite 500<br>Los Angeles, CA 90001</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 SMA³ Mentorship. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                nav.classList.toggle('hidden');
+                nav.classList.toggle('flex');
+                nav.classList.toggle('flex-col');
+                nav.classList.toggle('absolute');
+                nav.classList.toggle('top-16');
+                nav.classList.toggle('right-6');
+                nav.classList.toggle('bg-white');
+                nav.classList.toggle('shadow-lg');
+                nav.classList.toggle('p-6');
+                nav.classList.toggle('rounded');
+                nav.classList.toggle('z-50');
+                
+                if (nav.classList.contains('flex-col')) {
+                    nav.querySelectorAll('a, button').forEach(item => {
+                        item.classList.add('my-2');
+                    });
+                } else {
+                    nav.querySelectorAll('a, button').forEach(item => {
+                        item.classList.remove('my-2');
+                    });
+                }
+            });
+        });
+    </script>
+    <script id="smooth-scroll-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    const nav = document.querySelector('nav');
+                    if (nav.classList.contains('flex-col')) {
+                        nav.classList.add('hidden');
+                        nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'right-6', 'bg-white', 'shadow-lg', 'p-6', 'rounded', 'z-50');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="form-validation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    let isValid = true;
+                    const firstName = document.getElementById('firstName');
+                    const lastName = document.getElementById('lastName');
+                    const email = document.getElementById('email');
+                    const phone = document.getElementById('phone');
+                    const service = document.getElementById('service');
+                    
+                    // Simple validation
+                    if (!firstName.value.trim()) {
+                        firstName.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        firstName.classList.remove('border-red-500');
+                    }
+                    
+                    if (!lastName.value.trim()) {
+                        lastName.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        lastName.classList.remove('border-red-500');
+                    }
+                    
+                    if (!email.value.trim() || !email.value.includes('@')) {
+                        email.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        email.classList.remove('border-red-500');
+                    }
+                    
+                    if (!phone.value.trim()) {
+                        phone.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        phone.classList.remove('border-red-500');
+                    }
+                    
+                    if (service.value === "") {
+                        service.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        service.classList.remove('border-red-500');
+                    }
+                    
+                    if (isValid) {
+                        // Form is valid, would submit to server here
+                        alert('Thank you for your submission! We will contact you soon.');
+                        form.reset();
+                    } else {
+                        alert('Please fill in all required fields correctly.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
